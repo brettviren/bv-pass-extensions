@@ -1,0 +1,29 @@
+#+title: some extensions to pass
+
+Here are some extensions to [[https://www.passwordstore.org/][pass]].  They go in =~/.password-store/.extensions/=
+
+* Install
+
+#+begin_example
+$ ./install.sh
+#+end_example
+
+* Summary of extensions
+
+** Mine
+
+- tail.bash :: output all but first line.
+
+- data.bash :: access none-password parts as "key:value" pairs, multi-line values allowed.
+
+** Others
+
+- otp.bash :: from https://github.com/tadfisher/pass-otp (GPLv3)
+
+- index.bash :: from https://github.com/sboesebeck/pass-index (Apache-2.0)
+
+* Usage
+
+These extensions are available for you to use under the GPLv3 or as otherwise indicated.
+
+
