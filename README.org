@@ -5,8 +5,10 @@ Here are some extensions to [[https://www.passwordstore.org/][pass]].  They go i
 * Install
 
 #+begin_example
-$ ./install.sh
+$ ./install.sh [force]
 #+end_example
+
+This will copy ~*.bash~ to the extensions directory if the file does not yet exist there.  If it exists and differs, a patch is emitted.  If "force" option, then the target is overwritten.
 
 * Summary of extensions
 
