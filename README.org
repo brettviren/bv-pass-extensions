@@ -14,9 +14,48 @@ This will copy ~*.bash~ to the extensions directory if the file does not yet exi
 
 ** Mine
 
-- tail.bash :: output all but first line.
+*** tail.bash
 
-- data.bash :: access none-password parts as "key:value" pairs, multi-line values allowed.
+Output all but first (password) line.
+
+#+begin_example
+$ pass tail path/to/entry
+#+end_example
+
+*** data.bash 
+
+Access non-password data in an entry.
+
+This assumes the entry follows this basic form:
+#+begin_example
+<key> : <value>
+#+end_example
+
+With:
+
+- ~<key>~ :: Must not start with a space but may have internal spaces.
+- ~:~ :: May be surrounded by optional spaces.
+- ~<value>~ :: May start on same line as ~<key> :~ or on the subsequent line and may be multiple lines.  Any ~<value>~ line on its own line MUST start with at least one white space character.
+  
+
+Usage:
+
+#+begin_example
+$ pass data [-k|--key key] ... [-s|--strip] path/to/entry
+#+end_example
+
+Multiple ~-k|--key key~ options are accepted and the query key may be
+literal or a regular expression.
+
+
+Note, output (without ~-s|--strip~) is essentially YAML.  One can form JSON
+with, eg,
+
+#+begin_example
+$ pass data -k key path/to/entry | yq
+#+end_example
+
+However, while this script allows repeated keys, YAML does not.
 
 ** Others
 
@@ -26,6 +65,7 @@ This will copy ~*.bash~ to the extensions directory if the file does not yet exi
 
 * Usage
 
-These extensions are available for you to use under the GPLv3 or as otherwise indicated.
+These extensions are available for you to use under the terms of the GPLv3 license (see LICENSE file) or as otherwise indicated.
+
 
 
